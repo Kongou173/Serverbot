@@ -59,7 +59,7 @@ async def say(interaction: discord.Interaction, message: str):
     description="ランダムにユーザーの名前を変更します"
 )
 async def random_name(interaction: discord.Interaction):
-    random_names = ["受験面倒…", "鯖主とねんねこ万歳", "早く幻想郷行きたい…", "スーパーノヴァ", "ねんねこの技術力には脱帽だよ…"]
+    random_names = ["受験面倒…", "鯖主とねんねこ万歳", "早く幻想郷行きたい…", "スーパーノヴァ", "俺は最高最強の存在だ。", "俺の右に出る者はいない。", "ねんねこの技術力には脱帽だよ…"]
     new_name = random.choice(random_names)
     try:
         await interaction.user.edit(nick=new_name)
