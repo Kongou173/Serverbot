@@ -31,13 +31,9 @@ async def on_ready():
     presence_loop.start()
 
 # /help コマンド：Botの使い方を表示
-@bot.tree.command(
-    name="help",
-    description="利用可能なコマンド一覧を表示します"
-)
+@bot.tree.command(name="help",description="利用可能なコマンド一覧を表示します")
 async def bot_help(interaction: discord.Interaction):
-    embed = discord.Embed(
-        title="ボットの使い方", color=discord.Colour.blurple()
+    embed = discord.Embed(title="ボットの使い方", color=discord.Colour.blurple()
     ).add_field(name="/say <メッセージ>", value="Botが指定したメッセージを送信") \
      .add_field(name="/random", value="ランダムに名前を変更します") \
      .add_field(name="/help", value="利用可能なコマンド一覧を表示します")
@@ -45,19 +41,13 @@ async def bot_help(interaction: discord.Interaction):
     await interaction.response.send_message(embed=embed)
 
 # /say コマンド：指定されたメッセージをBotが発言
-@bot.tree.command(
-    name="say",
-    description="指定されたメッセージをBotが発言します"
-)
+@bot.tree.command(name="say",description="指定されたメッセージをBotが発言します")
 @app_commands.describe(message="Botが発言するメッセージ")
 async def say(interaction: discord.Interaction, message: str):
     await interaction.response.send_message(f"{message}")
 
 # /random コマンド：ユーザーの名前をランダムに変更
-@bot.tree.command(
-    name="random",
-    description="ランダムにユーザーの名前を変更します"
-)
+@bot.tree.command(name="random",description="ランダムにユーザーの名前を変更します")
 async def random_name(interaction: discord.Interaction):
     random_names = ["受験面倒…", "鯖主とねんねこ万歳", "早く幻想郷行きたい…", "スーパーノヴァ", "俺は最高最強の存在だ。", "俺の右に出る者はいない。", "ねんねこの技術力には脱帽だよ…"]
     new_name = random.choice(random_names)
